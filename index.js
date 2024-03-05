@@ -5,6 +5,9 @@ const session = require("express-session");
 const User = require("./models/user");
 User.sync();
 
+const Note = require("./models/notes");
+Note.sync();
+
 const app = express();
 
 app.use(
@@ -20,8 +23,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const userRoutes = require("./routes/users");
-
 app.use("/users", userRoutes);
+
+const noteRoutes = require("./routes/notes");
+app.use("/notes", noteRoutes);
+app.use("/createNote", noteRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
