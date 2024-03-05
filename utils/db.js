@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const Sequelize = new Sequelize('mysql://root:qwerty@localhost:3306/user_notes');
+const sequelize = new Sequelize('mysql://root:qwerty@localhost:3306/user_notes');
 
 sequelize.authenticate().then(() => {
     console.log('Connection has been established successfully.');
