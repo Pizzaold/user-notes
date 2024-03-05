@@ -10,6 +10,10 @@ Note.sync();
 
 const app = express();
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+})
+
 app.use(
   session({
     secret: "this is a secret",
@@ -27,7 +31,6 @@ app.use("/users", userRoutes);
 
 const noteRoutes = require("./routes/notes");
 app.use("/notes", noteRoutes);
-app.use("/createNote", noteRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

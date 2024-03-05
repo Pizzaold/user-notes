@@ -13,7 +13,7 @@ const register = (req, res) => {
       return res.json({ message: "Password must be at least 8 characters" });
     }
     bcrypt.hash(req.body.password, 10, (err, hash) => {
-      User.create({
+        User.create({
         username: req.body.username,
         email: req.body.email,
         password: hash,
